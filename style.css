@@ -1,0 +1,28 @@
+.pt-add, .pt-wl { display:inline-flex; align-items:center; justify-content:center; flex:none; height:36px; margin-left:8px;
+  border:none; border-radius:18px; cursor:pointer; font:500 14px/1 Roboto,Arial,sans-serif; white-space:nowrap;
+  background:var(--yt-spec-badge-chip-background, rgba(255,255,255,.1)); color:var(--yt-spec-text-primary, #fff); }
+.pt-add { width:36px; padding:0; font-size:22px; }
+.pt-wl { padding:0 14px; }
+.pt-add:hover, .pt-wl:hover { background:var(--yt-spec-mono-tonal-hover, rgba(255,255,255,.2)); }
+.pt-wl.on { background:#3ea6ff; color:#000; }
+
+.pt-top { position:relative; display:inline-flex; align-items:center; justify-content:center; flex:none; width:40px; height:40px;
+  margin-left:8px; padding:0; border:none; border-radius:50%; background:transparent; cursor:pointer;
+  color:var(--yt-spec-text-primary, #fff); }
+.pt-top:hover { background:var(--yt-spec-mono-tonal-hover, rgba(255,255,255,.1)); }
+.pt-top.pt-fixed { position:fixed; top:8px; left:200px; z-index:2147483000; background:rgba(0,0,0,.6); }
+
+.pt-panel { display:none; position:fixed; z-index:2147483000; width:min(520px, calc(100vw - 16px)); height:min(78vh, 760px);
+  border-radius:14px; overflow:hidden; background:#0f0f0f; border:1px solid #303030; box-shadow:0 8px 32px rgba(0,0,0,.55); }
+.pt-panel.open { display:block; }
+.pt-panel iframe { width:100%; height:100%; border:0; display:block; color-scheme:dark; }
+
+.pt-menu { position:fixed; z-index:2147483647; min-width:200px; padding:8px; border-radius:10px;
+  background:#282828; color:#fff; box-shadow:0 4px 20px rgba(0,0,0,.5); font:14px/1.4 Roboto,Arial,sans-serif; }
+.pt-menu .pt-title { padding:4px; opacity:.7; font-size:12px; }
+.pt-menu label { display:block; padding:6px 4px; cursor:pointer; }
+.pt-menu button { width:100%; margin-top:6px; padding:6px; border:none; border-radius:6px; cursor:pointer;
+  background:#3ea6ff; color:#000; }
+
+.pt-add.pt-sm { width:20px; height:20px; margin-left:6px; font-size:15px; border-radius:50%; vertical-align:middle; }
+.pt-host { display:flex !important; align-items:center; }

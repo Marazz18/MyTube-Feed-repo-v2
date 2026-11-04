@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Můj feed</title>
+  <link rel="stylesheet" href="feed.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path fill="currentColor" d="M4 6.5h16a.75.75 0 0 0 0-1.5H4a.75.75 0 0 0 0 1.5zm0 5h10a.75.75 0 0 0 0-1.5H4a.75.75 0 0 0 0 1.5zm0 5h16a.75.75 0 0 0 0-1.5H4a.75.75 0 0 0 0 1.5zm13.25-5.15v5.3a.5.5 0 0 0 .77.42l4.15-2.65a.5.5 0 0 0 0-.84l-4.15-2.65a.5.5 0 0 0-.77.42z"/>
+      </svg>
+      <h1>Můj feed</h1>
+    </div>
+    <div class="bar">
+      <a id="updateBanner" href="#" target="_blank" class="btn update-btn" hidden>
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Stáhnout aktualizaci</span>
+      </a>
+      <div class="toggles">
+        <label class="chk"><input id="hideSeen" type="checkbox"><span>Skrýt zhlédnutá</span></label>
+        <label class="chk"><input id="hideShorts" type="checkbox"><span>Skrýt shorts</span></label>
+      </div>
+      <div class="actions">
+        <button id="addLink" class="icon" title="Přidat video nebo kanál z odkazu" aria-label="Přidat video nebo kanál z odkazu">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </button>
+        <button id="newFolder" class="icon" title="Přidat složku" aria-label="Přidat složku">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+        <div class="menuwrap">
+          <button id="menuBtn" class="icon" title="Další nastavení" aria-label="Další nastavení" aria-haspopup="true" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </button>
+          <div id="menu" class="menu" hidden>
+            <button id="refresh" title="Obnovit feed">↻ Obnovit feed</button>
+            <button id="popout" title="Otevřít na celé stránce">⤢ Otevřít na celé stránce</button>
+            <button id="syncBtn" title="Synchronizace přes Nostr">⇄ Sync přes Nostr</button>
+            <button id="browserBtn" title="Prohlížeč, ve kterém se otevírají videa" hidden>⊹ Prohlížeč pro videa</button>
+            <hr>
+            <button id="export">⬇ Export zálohy</button>
+            <label class="mitem">⬆ Import zálohy<input id="import" type="file" accept="application/json" hidden></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="tabs">
+    <button data-tab="my">Můj feed</button>
+    <button data-tab="all">Vše</button>
+    <button data-tab="subs">Subscribe list</button>
+    <button data-tab="wl">Watch later</button>
+    <span class="sp"></span>
+    <button id="filterBtn" title="Vyber, které složky se zobrazí v Můj feed">Složky ▾</button>
+  </nav>
+  <div id="filter" hidden></div>
+  <main id="cols"></main>
+  <dialog id="syncDlg">
+    <h2>Synchronizace přes Nostr</h2>
+    <div id="syncBody"></div>
+    <div class="dlgfoot"><button id="syncClose">Zavřít</button></div>
+  </dialog>
+  <dialog id="addDlg">
+    <h2>Přidat video nebo kanál</h2>
+    <input id="addUrl" type="text" placeholder="Vlož odkaz na YouTube video, kanál nebo @handle" autocomplete="off" autocapitalize="off" spellcheck="false">
+    <div class="row">
+      <button id="addPaste" class="paste-btn">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="2" width="6" height="4" rx="1"/>
+          <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/>
+        </svg>
+        <span>Vložit ze schránky</span>
+      </button>
+    </div>
+    <div id="addBody"></div>
+    <div class="dlgfoot"><button id="addClose">Zavřít</button></div>
+  </dialog>
+  <script src="shared.js"></script>
+  <script src="feed.js"></script>
+  <script src="addlink.js"></script>
+</body>
+</html>

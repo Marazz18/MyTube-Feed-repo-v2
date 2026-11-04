@@ -1,0 +1,7 @@
+{
+  "name": "mytube-nostr-bundle",
+  "private": true,
+  "scripts": { "build": "esbuild entry.js --bundle --format=iife --minify --target=chrome110 --outfile=../nostr.bundle.js" },
+  "dependencies": { "nostr-tools": "^2", "@noble/hashes": "^1" },
+  "devDependencies": { "esbuild": "*" }
+}
